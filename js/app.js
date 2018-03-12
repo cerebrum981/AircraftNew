@@ -82,7 +82,7 @@ if (navigator.geolocation) {
 
 		var coords = {lat:position.coords.latitude, lng:position.coords.longitude };
 
-		APP.startUp(coords);
+		APP.getMap(coords);
 	}, function(error){
 		  if (error.code == error.PERMISSION_DENIED){
 		     lib.error('Application Error', 'Geolocation Error', 'You must enable Geolocation to use this application.');
