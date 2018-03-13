@@ -114,7 +114,7 @@ APP.ajaxHistory = function(){
 
 	var newUrl = window.location.href;
 
-	if(newUrl == APP.baseUrl && newUrl != APP.newUrl){
+	if(newUrl == APP.baseUrl){
 		APP.newUrl = newUrl; 
 		$('#logo').attr('src','./img/loading.gif');
 		$('#page-map').css({'display':'block'});
