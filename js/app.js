@@ -34,15 +34,13 @@ APP.setMarker = function(){
 
 				data.orient = 'fa-rotate-180';
 
-			if(APP.dataHash[h] && APP.dataHash[h].Long && data.Long){
+			if(APP.dataHash[h] && APP.dataHash[h].Long && data.Long && data.Lat && data.Alt){
 				if(APP.dataHash[h].Long<data.Long || (APP.dataHash[h].Long>170 && data.Long>-180)){
-					
 					data.orient='';
-
 				}
 			}
 
-			if( data.Lat && data.Long && gmap.getBounds().contains({ lat:data.Lat, lng:data.Long })) { 
+			if( data.Lat && data.Long && data.Alt && gmap.getBounds().contains({ lat:data.Lat, lng:data.Long })) { 
 
 
 				APP.acList.push(data);
@@ -67,7 +65,7 @@ APP.setMarker = function(){
 
 				lib.sortArrayObjects(APP.acList, '-Alt'); 
 				lib.getView('list.hbs', APP, '#plane-list');
-				setTimeout(APP.setMarker, 12000 );
+				setTimeout(APP.setMarker, 10*1000 );
 		    }
 		});
 
@@ -75,7 +73,7 @@ APP.setMarker = function(){
 }
 
 APP.startUp = function(){
-//	APP.getMap({ lat:50, lng:20 });
+	APP.getMap({ lat:50, lng:20 });
 
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){ alert(JSON.stringify(position.coords.latitude))
@@ -112,20 +110,12 @@ if (navigator.geolocation) {
 
 }
 
-lib.ajax.get(APP.json, function(data){
-
-	lib.makeHashAsync(data.acList, function(hash){
-		APP.dataHash = hash;
-		APP.startUp();
-	});
-
-});
-
 APP.ajaxHistory = function(){
 
 	var newUrl = window.location.href;
 
-	if(newUrl == APP.baseUrl && newUrl != APP.newUrl){ 
+	if(newUrl == APP.baseUrl && newUrl != APP.newUrl){
+		APP.newUrl = newUrl; 
 		$('#logo').attr('src','./img/loading.gif');
 		$('#page-map').css({'display':'block'});
 		$('.company-info').css({'display':'none'});
@@ -169,3 +159,16 @@ $(function() {
 	});
 
 });
+
+
+startUp =function(){
+	lib.ajax.get(APP.json, function(data){
+
+		lib.makeHashAsync(data.acList, function(hash){
+			APP.dataHash = hash;
+			APP.startUp();
+		});
+
+	});
+}
+startUp();

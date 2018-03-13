@@ -5,7 +5,7 @@
 	<title>Document</title>
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
 	<script src='./resources/jquery/jquery.js'></script>
 	<script src='./resources/async/async.js'></script>
 	<script src='./js/lib.js'></script>
@@ -17,7 +17,7 @@
 	<script src="./resources/handlebars/handlebars.js"></script>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="./css/style.css"> 
+	
 	
 </head>
 <body>
@@ -32,20 +32,20 @@
 
 	</div>
 
-    <div id="plane-list-header" style="overflow-y: scroll;">
-		<div class="table-responsive" style="margin:0">
-			<table class="table table-striped " style="margin:0;">
+    <div id="plane-list-header">
+		<div class="table-responsive removeMargin">
+			<table class="table table-striped removeMargin">
 					<tr class="tr_fixhead">
-						<th style="width: 50px; text-align: center;">Orient.</th>
-						<th style="width: 120px; text-align: right;">Altitude</th>
-						<th style="width: 120px; text-align: center;">Flight No.</th>
+						<td class="orient"><strong>Orient.</strong></td>
+						<td class="alt"><strong>Altitude</strong></td>
+						<td class="alt"><strong><nobr>Flight No.</nobr></strong></td>
 					</tr>
 			</table>
 		</div>
 	</div>
 
-	<div id="plane-list-content" style="overflow-y: scroll;" style="margin:0">
-		<div class="table-responsive" id="plane-list" style="margin:0"></div>
+	<div id="plane-list-content">
+		<div class="table-responsive" id="plane-list"></div>
 	</div>
 </div>
 
@@ -76,7 +76,10 @@
   
 </div>
 </div>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGKDQcJOQcPigHK36Rg6YGL64D9Zch_NU &libraries=geometry"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCGKDQcJOQcPigHK36Rg6YGL64D9Zch_NU &libraries=geometry&sensor=false"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marker-animate-unobtrusive/0.2.8/vendor/markerAnimate.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marker-animate-unobtrusive/0.2.8/SlidingMarker.min.js"></script>
+<link rel="stylesheet" href="./css/style.css"> 
 </body>
 </html>

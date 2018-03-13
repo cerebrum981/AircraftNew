@@ -1,16 +1,28 @@
 html, body, #page-map {height:100%; width: 100%; overflow-y: hidden;}
 #google-map { width: calc(100% - 300px); float: left; height: 100%;}
-#plane-list-header{ width: 300px; float: right; }
-#plane-list-content{ width: 300px; float: right; height: calc(100% - 20px);}
+#plane-list-header{ width: 300px; float: right; overflow-y: scroll;}
+#plane-list-content{ width: 300px; float: right; height: calc(100% - 20px);overflow-y: scroll;}
 #flight-info {display: table;width: 100%; height: 100%;}
+.alt, .orient{width:33%; text-align: center; }
 #company-info{ width:400px; display: table-cell; text-align: center; vertical-align: middle;}
-.table-striped>tbody>tr:nth-child(even)>td {
-background-color: #f9f9f9; 
-}
+
 .table-striped>tbody>tr:nth-child(odd)>td {
+cursor: pointer;
 background-color: #fff; 
 }
 
+.table-striped>tbody>tr:nth-child(even)>td{
+cursor: pointer;
+background-color: #f9f9f9; 
+}
+
+.removeMargin {
+	margin:0;
+}
+
+.tr_fixhead>td {
+background-color: #f9f9f9 !important; 
+}
 /*---------------- LOADING DIV -----------------------------*/
 #loading-div {
 	position: absolute;
@@ -35,3 +47,34 @@ background-color: #fff;
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 /*---------------- LOADING DIV END-----------------------------*/
+
+div{
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-o-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+@media (max-width: 991px)  and (orientation : portrait)  {
+     /* start of large tablet styles */
+    #google-map {width:100%; height: calc(100% - 200px); display: block;}
+	#plane-list-content{clear: both;overflow-y: scroll; width: 100%; height:180px;}
+	#plane-list-header{clear: both; overflow-y: scroll; width: 100%; float: none; }
+	table.table tr th{
+		width: 50px !important;
+	}
+
+}
+
+@media (max-width: 991px)  and (orientation : landscape)  {
+     /* start of large tablet styles */
+	table.table.alt{
+		width:100px;
+	}
+	#google-map { width: calc(100% - 250px); float: left; height: 100%;}
+	#plane-list-content{ width: 300px; float: right; height: calc(100% - 10px);}
+	#plane-list-header{ width: 250px !important; float: right; }
+	#plane-list-content{ width: 250px !important;  float: right; }
+
+}

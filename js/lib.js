@@ -95,6 +95,6 @@ lib.error = function(title, head, content){
 		$(".modal-title").html("<p>"+title+"</p>");
 		$(".modal-body").html("<h3>"+head+"</h3><p>"+content+"</p>");
 		$("#error").modal("show");
-		return false;
+		return;
 }
 
