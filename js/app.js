@@ -73,7 +73,7 @@ APP.setMarker = function(){
 }
 
 APP.startUp = function(){
-	APP.getMap({ lat:50, lng:20 });
+	//APP.getMap({ lat:50, lng:20 });
 
 if (navigator.geolocation) {
 	navigator.geolocation.getCurrentPosition(function(position){ alert(JSON.stringify(position.coords.latitude))
