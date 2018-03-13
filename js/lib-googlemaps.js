@@ -55,7 +55,7 @@ lib.gmap = {
 	          title:'Alt: '+ data.Alt,
 	          map: map,
 	          position: latLng,    
-	          duration: 12*1000,
+	          duration: 10*1000,
     		  easing: "linear",
 	          icon: icon,
 	          label:{
